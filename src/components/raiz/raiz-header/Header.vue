@@ -2,7 +2,7 @@
   <header>
     <div class="box-button-logo">
         <img id="#box-one" v-on:click="softScroll($event)" class="logo-daula" 
-        src="../../../imagens/logo/daulaLogo2.svg" alt="logo daula">
+        src="@/imagens/logo/daulaLogo2.svg" alt="logo daula">
     </div>
     <nav class="box-header-buttons">
       <div class="header-buttons">
@@ -20,21 +20,17 @@
     </nav>
     <div class="box-buttons-register">
       <div class="buttons-register-one">
-        <a href="">
-          <button>Entrar</button>
-        </a>
+        <button id="#box-one" v-on:click="rotateBoxLogin(), softScroll($event)">Entrar</button>
       </div>
       <div class="buttons-register-two">
-        <a href="">
-          <button>Registrar</button>
-        </a>
+        <button id="#box-one" v-on:click="rotateBoxRegister(), softScroll($event)">Registrar</button>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import '../../../style/main.css'
+import '@/style/main.css'
 
 export default {
   name: 'Header',
@@ -54,6 +50,18 @@ export default {
       } else {
            window.scroll(0, section - header);
       }
+    },
+    rotateBoxLogin() {
+      const element = document.querySelector('div.rotate')
+      if(element.classList.contains("change")) {
+        element.classList.remove("change")
+      }
+    },
+    rotateBoxRegister() {
+       const element = document.querySelector('div.rotate')
+      if(!element.classList.contains("change")) {
+        element.classList.add("change")
+      } 
     },
   }
 }

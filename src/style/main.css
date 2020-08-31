@@ -1,6 +1,7 @@
 /* slabo 13px #007580*/
 @import url('https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
 
 body {
     margin: 0;
@@ -44,7 +45,9 @@ header {
 .box-header-buttons{
     grid-area: navbar;
     display: flex;
-    justify-self: end;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     align-self: center;
 }
 
@@ -92,7 +95,9 @@ header {
 .buttons-register-one {
     width: 100%;
     display: grid;
-    justify-content: end;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
     align-self: center;
 }
 
@@ -103,8 +108,8 @@ header {
     align-self: center;
 }
 
-.buttons-register-one > a > button,
-.buttons-register-two > a > button {
+.buttons-register-one > button,
+.buttons-register-two > button {
     font-family: 'Slabo 13px', serif;
     background: #10757E;
     width: 7vw;
@@ -126,16 +131,23 @@ header {
 /* MAIN */
 
 main {
+    background-color: #007580;
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: 100vh 100vh 100vh 100vh 100vh;
+    grid-template-rows: 110vh 100vh 100vh 100vh 100vh;
     grid-template-areas: 
     "box-one"
     "box-two"
     "box-three"
     "box-four"
     "box-five";
+}
+
+.style-link-created-by{
+    color: #003A40;
+    font-family: 'Alata', sans-serif;
+    font-size: 14px;
 }
 
 /* BOX-ONE */
@@ -148,6 +160,177 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 98% 2%;
+    grid-template-areas:
+    "mensage autenticacao"
+    "link link";
+}
+
+.box-text h3{
+    font-family: 'Sofia', cursive;
+    margin: 0;
+    text-align:center;
+    font-size: 25px
+}
+
+.box-text {
+    grid-area: mensage;
+    font-family: 'Slabo 13px', serif;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000000;
+    margin: 4vw;
+    padding: 1% 3% 1% 3%;
+    text-align: center;
+    background: #003A40;
+    color: #ffffff;   
+    font-size: 16px;
+}
+
+.box-autenticacao{
+    grid-area: autenticacao;
+    margin-top: 10vh;
+    height:  85vh;
+    width: 32vw;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    border: #000000;
+    position: relative;
+}
+
+.rotate {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 1s ease;
+    background: #003A40;;
+}
+
+.change {
+    transform: rotateY(180deg)
+}
+
+.box-login,
+.box-register {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: grid;
+    grid-template-rows: 25% 75%;
+    grid-template-areas: 
+    "title-form"
+    "content-form";
+    justify-content: center;
+}
+
+.box-form-login,
+.box-form-register {
+    grid-area: content-form;
+    width: 25vw;
+}
+
+.input-form-daula {
+    font-family: 'Slabo 13px', serif;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    margin: 5% 0;
+}
+
+.box-form-login form div,
+.box-form-register form div{
+    position: relative;
+}
+
+.box-form-login form div label,
+.box-form-register form div label {
+    font-family: 'Slabo 13px', serif;
+    position: absolute;
+    top: 28px;
+    left: 5px;
+    color: #ffffff;
+    transition: .5s;
+    pointer-events: none;
+    font-size: 15px
+}
+
+.input-form-daula:focus ~ label,
+.input-form-daula:valid ~ label {
+    top: -3px;
+    left: 0;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.box-submit-form-daula {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit-form-daula {
+    font-family: 'Slabo 13px', serif;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    width: 30%;
+    height: 35%;
+    background: #007580;
+    color: #ffffff;
+    font-weight: bold;
+    transition: .5s
+}
+
+.submit-form-daula:hover {
+    background: none;
+    border: 1px solid #007580;
+    border-radius: 0;
+}
+
+.box-register {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: #003A40;
+    transform: rotateY(180deg);
+}
+
+.box-autenticacao h2 {
+    grid-area: title-form;
+    font-family: 'Sofia', cursive;
+    color: #ffffff;
+    text-align: center;
+}
+
+.credits-img-box-one {
+    grid-area: link;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    align-items: flex-end;
 }
 
 /* BOX-TWO */
@@ -167,7 +350,8 @@ main {
     background-color: #003A40;
     border: 1px #000000 solid; 
     display: grid;
-    grid-template-rows: 15% 85%;
+    grid-template-rows: 20% 85%;
+    height: 80vh;
     grid-template-areas: 
     "title-sobre"
     "text-sobre"
@@ -188,33 +372,227 @@ main {
     font-family: 'Slabo 13px', serif;
     grid-area: text-sobre;
     margin: 2% 10% 5% 10%;
-    padding: 4%;
-    border: 1px #ffffff solid;
     text-align: center;
     font-size: 18px;
     color: #ffffff;
 }
 
-
 .box-img-sobre {
     grid-area: box-image-sobre;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 82% 5%;
+    grid-template-areas: 
+    "svg"
+    "created-by"
+    ;
+}
+
+.img-sobre {
+    grid-area: svg;
+    height: 55vh;
+}
+
+.img-box-two-created-by {
+    display: flex;
+    justify-content: center;
+}
+
+/* BOX-THREE */
+
+.box-three {
+    grid-area: box-three;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 48% 52%;
+    grid-template-areas: 
+    "img-aulas"
+    "text-aulas"
+}
+
+.box-img-aulas {
+    grid-area: img-aulas;
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-areas: "bloco img-aulas created-by";
+}
+
+.img-aulas {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    grid-area: img-aulas;
+    height: 45vh;
+}
+
+.img-box-three-created-by {
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    align-items: flex-end;
+    grid-area: created-by;
+}
+
+.box-text-aulas {
+    grid-area: text-aulas;
+    margin: 0 10% 8% 10% ;
+    padding: 1% 3%;
+    text-align: center;
+    background-color: #003A40;
+    border: 1px solid #000000;
+    color: #ffffff;
+    display: grid;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+    "title-text"
+    "content-text" 
+}
+
+.box-title-aulas {
+    font-family: 'Sofia', cursive;
+}
+
+.title-aulas {
+    margin: 0;
+    padding: 0;
+}
+
+.content-aulas {
+    grid-area: content-text;
+    margin: 0;
+    padding: 0 3%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.img-sobre {
+/* BOX-FOUR */
+
+.box-four {
+    grid-area: box-four;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "img-doacao text-doacao"
+}
+
+.box-img-doacao {
+    grid-area: img-doacao;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 80% 5%;
+    grid-template-areas: 
+    "img-doacao"
+    "created-by";
+}
+
+.img-doacao {
+    grid-area: img-doacao;
     height: 45vh;
 }
 
-.animate {
-    z-index: 0;
-    transform: translateY(100px);
-    transition: all .5s ease-out;
+.img-box-four-created-by {
+    grid-area: created-by;
+    display: flex;
+    justify-content: center;
+}
+
+.box-text-doacao {
+    grid-area: text-doacao;
+    margin: 5% 10%;
+    background-color: #003A40;
+    border: 1px #000000 solid; 
+    display: grid;
+    grid-template-rows: 20% 85%;
+    height: 80vh;
+    grid-template-areas: 
+    "title-sobre"
+    "text-sobre"
+}
+
+.box-title-doacao {
+    font-family: 'Sofia', cursive;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.box-content-doacao {
+    margin: 2% 10% 5% 10%;
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* BOX-FIVE */
+
+.box-five {
+    grid-area: box-five;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 
 }
 
-.enter {
-    
-    transform: translateY(0px)
+.box-principios {
+    width: 25vw;
+    height: 60vh;
+    background-color: #003A40;
+    border: 1px solid #000000;
+    display: grid;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+    'title-pricipios'
+    'text-principios'
+}
+
+.box-title-principios {
+    font-family: 'Sofia', cursive;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-content-principios {
+    padding: 0 3%;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* FOOTER */
+
+footer {
+    grid-area: footer;
+    background: #00464D;
+    height: 30vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 80% 20%;
+    grid-template-areas: 
+    "facebook instagram whatsapp email"
+    "freepik freepik freepik freepik";
+}
+
+.box-icon-social-midia {
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.img-redes-sociais {
+    height: 50%;
 }
