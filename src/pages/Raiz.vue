@@ -21,12 +21,15 @@ export default {
     Fragment,
     Header,
     Main,
-    Footer
+    Footer,
   },
-  
 }
 </script>
 
 <style>
+
+#app {
+  width: 100%;
+}
 
 </style>

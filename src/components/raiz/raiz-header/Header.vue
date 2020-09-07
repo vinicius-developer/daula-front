@@ -4,37 +4,22 @@
         <img id="#box-one" v-on:click="softScroll($event)" class="logo-daula" 
         src="@/imagens/logo/daulaLogo2.svg" alt="logo daula">
     </div>
-    <nav class="box-header-buttons">
-      <div class="header-buttons">
-          <button id="#box-two" v-on:click="softScroll($event)">Sobre</button>
-      </div>
-      <div class="header-buttons">
-          <button id="#box-three" v-on:click="softScroll($event)">Aulas</button>
-      </div>
-      <div class="header-buttons">
-          <button id="#box-four" v-on:click="softScroll($event)">Doações</button>
-      </div>
-      <div class="header-buttons">
-          <button id="#box-five" v-on:click="softScroll($event)">Valores</button>
-      </div>
-    </nav>
-    <div class="box-buttons-register">
-      <div class="buttons-register-one">
-        <button id="#box-one" v-on:click="rotateBoxLogin(), softScroll($event)">Entrar</button>
-      </div>
-      <div class="buttons-register-two">
-        <button id="#box-one" v-on:click="rotateBoxRegister(), softScroll($event)">Registrar</button>
-      </div>
-    </div>
+    <PcNav/>
+    <SmartphoneNav />
   </header>
 </template>
 
 <script>
 import '@/style/main.css'
 
+import SmartphoneNav from './components/SmartphoneNav.vue'
+import PcNav from './components/PcNav.vue'
+
 export default {
   name: 'Header',
   components: {
+    SmartphoneNav,
+    PcNav
   },
   methods: {
     softScroll(event) {
